@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Purnama Raya</title>
+    <!-- Themes -->
+    <meta name="theme-color" content="" id="themeColor" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="" id="favicon">
+    <!-- General CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="static/bootstrap-icons/font/bootstrap-icons.min.css">
+    <!-- Utlilites CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/utilities.css">
+</head>
+
+
+<body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+        <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+            id="navbarVertical">
+            <div class="container-fluid">
+                <button class="navbar-toggler ms-n2 collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                    </span>
+                </button>
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="status.html">
+                    <!-- Update your logo in folder static/js/app.js -->
+                    <img src="" alt="..." class="logocolor">
+                </a>
+                <div class="navbar-user d-lg-none">
+                    <div class="dropdown">
+                        <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div class="avatar-parent-child">
+                                <img alt="Image Placeholder" src="static/img/avatar/avatar-owner.png"
+                                    class="avatar avatar- rounded-circle">
+                                <span class="avatar-child avatar-badge bg-success"></span>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
+                            <a href="profile.html" class="dropdown-item">Profile</a>
+                            <hr class="dropdown-divider"><a href="#" class="dropdown-item" data-bs-toggle="modal"
+                                data-bs-target="#logoutModal">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse" id="sidebarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="status.html">
+                                <i class="bi bi-bar-chart-fill"></i>
+                                Status
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-ticket-perforated-fill"></i>
+                                Voucher Package
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank"
+                                href="https://www.google.com/search?q=internet+speed+test&oq=internet+speed+test&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIGCAUQBRhAMgYIBhBFGDwyBggHEEUYPNIBCDEzMjVqMGo5qAIAsAIB&sourceid=chrome&ie=UTF-8">
+                                <i class="bi bi-speedometer"></i>
+                                Speedtest
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">
+                                <i class="bi bi-person-fill-gear"></i>
+                                Services
+                            </a>
+                        </li>
+                    </ul>
+                    <hr class="navbar-divider my-5 opacity-70">
+                    <ul class="navbar-nav">
+                        <li>
+                            <span class="nav-link text-xs font-semibold text-uppercase text-muted ls-wide">Information
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                <i class="bi bi-telephone"></i>
+                                Contact us
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-2 d-flex align-items-center" href="changelog.html" target="_blank">
+                                <i class="bi bi-journals"></i>
+                                <span>Changelog</span>
+                                <span
+                                    class="badge badge-sm bg-soft-dark text-dark rounded-pill ms-auto">v1.0.0</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+            <header class="bg-surface-primary border-bottom py-6">
+                <div class="container-fluid">
+                    <div class="mb-npx">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                                <small>Hi, $(username)</small>
+                                <h1 class="h2 ls-tight" id="greeting"></h1>
+                            </div>
+                            <div class="col-sm-6 col-12 text-sm-end d-inline-block d-lg-block d-none">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal"
+                                        data-bs-target="#logoutModal">
+                                        <span class="pe-2">
+                                            <i class="bi bi-box-arrow-left"></i>
+                                        </span>
+                                        <span>Logout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+
+            <!-- Modal logout -->
+            <div class="modal" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content shadow-3">
+                        <div class="modal-body p-4">
+                            <div class="text-center">
+                                <div class="icon icon-shape bg-soft-tertiary text-tertiary text-lg rounded-circle mb-5">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </div>
+                                <h4>Are you sure you want to come out?</h4>
+                                <small class="text-muted">Your action will clear your current login session
+                                    This is</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer p-2">
+                            <button type="button" class="btn btn-sm btn-neutral" data-bs-dismiss="modal">Close</button>
+                            <a href="logout.html?erase-cookie=true" type="button" class="btn btn-sm btn-danger">Sure</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main class="py-6 bg-surface-secondary">
+                <div class="container-fluid vstack gap-6">
+                    <div class="row g-6" id="itemCards">
+                        <div>
+                            <h5>Voucher Package</h5>
+                            <p class="text-sm text-muted mt-1">Select your
+                                favorite package
+                            </p>
+                        </div>
+                        <div class="col-xl-6 col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-body py-4">
+                                    <div class="d-md-none">
+                                        <div
+                                            class="d-flex align-items-center mt-5 mb-3 lh-none text-heading d-block display-5 ls-tight mb-0">
+                                            <span
+                                                class="font-semibold text-2xl align-self-start mt-1 mt-sm-1 me-1">$</span>
+                                            <span>59</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-5">
+                                        <div class="flex-1">
+                                            <h6 class="h5 font-semibold mb-1">Unlimited</h6>
+                                            <p class="text-sm text-muted">The perfect way to get started.</p>
+                                        </div>
+                                        <div class="ms-auto d-none d-md-block">
+                                            <div
+                                                class="d-flex align-items-center mt-5 mb-3 lh-none text-heading d-block h2 ls-tight mb-0">
+                                                <span
+                                                    class="font-semibold text-sm align-self-start mt-1 mt-sm-1 me-1">$</span>
+                                                <span>59</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-1"><span
+                                            class="text-sm text-muted font-semibold text-heading d-block">30 days</span>
+                                        <span class="text-sm text-muted ls-tight d-block">Up to <span>1</span>
+                                            Devices</span>
+                                    </div>
+                                    <hr class="my-4">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <a href="#" class="btn btn-sm btn-neutral ms-auto" data-bs-toggle="modal"
+                                            data-bs-target="#orderVoucherModal">Buy now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Modal voucher order -->
+            <div class="modal fade" id="voucherDetailsModal" tabindex="-1" aria-labelledby="voucherDetailsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen-lg-down">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="icon icon-shape rounded-3 bg-soft-primary text-primary text-lg me-4">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Order Package</h5><small class="d-block text-xs text-muted">Please
+                                    completed order form</small>
+                            </div>
+                            <div class="ms-auto text-muted" data-bs-dismiss="modal" style="cursor: pointer;">
+                                <i class="bi bi-x-lg"></i>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="">
+                                <div class="d-md-none">
+                                    <div
+                                        class="d-flex align-items-center mt-5 mb-3 lh-none text-heading d-block display-5 ls-tight mb-0">
+                                        <span
+                                            class="font-semibold text-2xl align-self-start mt-1 mt-sm-1 me-1 currency">$</span>
+                                        <span class="voucherPrice">59</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-5">
+                                    <div class="flex-1">
+                                        <h6 class="h5 font-semibold mb-1 voucherData">Unlimited</h6>
+                                        <p class="text-sm text-muted">The perfect way to get started.
+                                        </p>
+                                    </div>
+                                    <div class="ms-auto d-none d-md-block">
+                                        <div
+                                            class="d-flex align-items-center mt-5 mb-3 lh-none text-heading d-block h3 ls-tight mb-0">
+                                            <span
+                                                class="font-semibold text-md align-self-start mt-1 mt-sm-1 me-1 currency">$</span>
+                                            <span class="voucherPrice">59</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <span class="text-sm text-muted font-semibold text-heading d-block voucherLimit">30
+                                        days</span>
+                                    <span class="text-sm text-muted ls-tight d-block">Up to
+                                        <span class="voucherDevices">1</span>
+                                        Devices</span>
+                                </div>
+                                <hr class="my-4">
+                            </div>
+                            <div>
+                                <form id="orderForm" action="#" method="post">
+                                    <!-- <div
+                                         class="head-instruction mb__4 mt__4 text-bg-warning bg-opacity-25 p-2 rounded">
+                                         Note: <br>
+                                         <small class="fw-light text-secondary"><span
+                                                 id="noteUserOrder"></span></small>
+                                     </div> -->
+                                    <div class="form-group my-4">
+                                        <div class="form-label">Name</div>
+                                        <input type="text" name="#" id="orderUser" class="form-control form-control-sm"
+                                            placeholder="Please enter your name" autocomplete="off" required>
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <select class="form-select form-select-sm"
+                                            aria-label="Default select example" id="paymentMethod" required>
+                                            <option selected disabled value="">Select payment</option>
+                                            <option value="QRIS">QR</option>
+                                            <option value="Cash">Cash</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="form-label">Select payment method</div>
+                                        <!-- QRIS -->
+                                        <div class="box mb-2 js-check">
+                                            <div class="float-end">
+                                                <i class="bi bi-qr-code"></i>
+                                            </div>
+                                            <label class="form-check">
+                                                <input type="radio" name="payment" class="form-check-input" value="QRIS"
+                                                    required>
+                                                <div class="form-check-label">QRIS</div>
+                                            </label>
+                                        </div>
+                                        <!-- Cash -->
+                                        <div class="box mt-2 js-check">
+                                            <div class="float-end">
+                                                <i class="bi bi-cash-stack"></i>
+                                            </div>
+                                            <label class="form-check">
+                                                <input type="radio" name="payment" class="form-check-input" value="Cash"
+                                                    required>
+                                                <div class="form-check-label">Cash</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-content" id="qris-content" style="display: none;">
+                                        <img src="static/img/payment/QRIS.png" alt="qris"
+                                            class="w-100 border border-1 border-muted rounded-2 my-3">
+                                        <div class="list-group-item p-6 bg-surface-secondary border-0 rounded-2">
+                                            <div class="flex-1">
+                                                <h6 class="h5 font-semibold mb-1">How to make payment with QRIS</h6>
+                                                <p class="text-sm text-muted">Please follow the step
+                                                </p>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex mb-3">
+                                                <div class="w-10">
+                                                    <i class="bi bi-download text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <divs class="d-block h5">Step 1</divs>
+                                                    <p class="mt-1 text-sm text-muted">Please download this
+                                                        QRIS code <a href="static/img/payment/QRIS.png"
+                                                            download="QRIS">here</a> </p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex">
+                                                <div class="w-10">
+                                                    <i class="bi bi-upc-scan text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <div class="d-block h5">Step 2</div>
+                                                    <p class="mt-1 text-sm text-muted">Next, please upload
+                                                        or scan the QR in your payment app</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex">
+                                                <div class="w-10">
+                                                    <i class="bi bi-fullscreen text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <div class="d-block h5">Step 3</div>
+                                                    <p class="mt-1 text-sm text-muted">Finally, please send
+                                                        proof of payment to our whatsApp or can show it to
+                                                        the cashier, otherwise your order cannot be
+                                                        processed.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="payment-content" id="cash-content" style="display: none;">
+                                        <img src="static/img/payment/cash.svg" alt="cash" class="w-100">
+                                        <div class="list-group-item p-6 bg-surface-secondary border-0 rounded-2">
+                                            <div class="flex-1">
+                                                <h6 class="h5 font-semibold mb-1">How to make payment with Cash</h6>
+                                                <p class="text-sm text-muted">Please follow the step
+                                                </p>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex mb-3">
+                                                <div class="w-10">
+                                                    <i class="bi bi-person-video3 text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <divs class="d-block h5">Step 1</divs>
+                                                    <p class="mt-1 text-sm text-muted">After you complete the order
+                                                        form, please go to the Cashier or Admin immediately so that your
+                                                        order
+                                                        can be processed.</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex">
+                                                <div class="w-10">
+                                                    <i class="bi bi-wallet2 text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <div class="d-block h5">Step 2</div>
+                                                    <p class="mt-1 text-sm text-muted">Next, make a nominal payment
+                                                        according to the service you ordered</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex">
+                                                <div class="w-10">
+                                                    <i class="bi bi-check-circle text-lg text-muted"></i>
+                                                </div>
+                                                <div class="flex-1 me-10">
+                                                    <div class="d-block h5">Step 3</div>
+                                                    <p class="mt-1 text-sm text-muted">Finally, please wait until your
+                                                        order is processed to completion by the Cashier or Admin.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <div class="price-services mt-6 mb-6"></div>
+                                    <input type="hidden" id="voucherId">
+                                    <button type="submit" id="message-button"
+                                        class="btn btn-sm btn-primary d-block w-full" id="orderButton" disabled>Order
+                                        now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Library -->
+    <script src="static/js/jquery-3.7.1.js"></script>
+    <!-- General JS -->
+    <script src="static/js/main.js"></script>
+    <script src="static/js/app.js"></script>
+    <!-- Voucher data JS  -->
+    <script src="static/js/setup-data/voucher-st.js"></script>
+    <script>
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        * Note: Please Don't change this line of code if you do not understand it ⚠️
+        *-----------------------------------------------------------------------------------------------
+        * Checkbox payment
+        * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+        $('.js-check :radio').change(function () {
+            var check_attr_name = $(this).attr('name');
+            if ($(this).is(':checked')) {
+                $('input[name=' + check_attr_name + ']').closest('.js-check').removeClass('active');
+                $(this).closest('.js-check').addClass('active');
+                // item.find('.radio').find('span').text('Add');
+
+            } else {
+                item.removeClass('active');
+                // item.find('.radio').find('span').text('Unselect');
+            }
+        });
+
+        $(document).ready(function () {
+            $('.js-check :radio').change(function () {
+                var check_attr_value = $(this).val();
+                $('.payment-content').hide(); // Hide all payment texts
+                $('#' + check_attr_value.toLowerCase() + '-content').show(); // Show payment text based on selected value
+                $('#message-button').prop('disabled', false); // Enable message button
+            });
+        });
+
+    </script>
+</body>
+
+</html>

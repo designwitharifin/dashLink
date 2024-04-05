@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>dashLink | Login</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- General CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="static/bootstrap-icons/font/bootstrap-icons.min.css">
+    <!-- Utlilites CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/utilities.css">
+
+</head>
+
+<body onload="voucher()">
+    <div>
+        <div class="px-5 py-5 p-lg-0 min-h-screen d-flex flex-column justify-content-center bg-surface-secondary">
+            <div class="d-flex justify-content-center">
+                <div
+                    class="col-lg-5 col-xl-4 p-12 p-xl-20 position-fixed start-0 top-0 h-screen overflow-y-hidden bg-primary d-none d-lg-flex flex-column">
+                    <a class="d-block" href="#">
+                        <img src="static/img/logo/logo-dashLink-text-whitevg.svg" class="h-10" alt="...">
+                    </a>
+                    <div class="mt-32 mb-20">
+                        <h1 class="ls-tight font-bolder display-6 text-white mb-5">Boost Productivity with Blazing
+                            Speeds</h1>
+                        <p class="text-white text-opacity-80">Unlock the Power of Seamless Connectivity for All Your
+                            Devices
+                        </p>
+                    </div>
+                    <div>
+                        <img src="#" alt="">
+                    </div>
+                </div>
+                <div
+                    class="col-12 col-md-9 col-lg-7 offset-lg-5 border-left-lg min-h-screen d-flex flex-column justify-content-center position-relative">
+                    <div class="py-lg-16 px-lg-20">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-9 col-xl-6 mx-auto ms-xl-0">
+                                <a class="d-lg-none" href="#">
+                                    <img src="" alt="..." class="logocolor h-10">
+                                </a>
+                                <div class="mt-10 mt-lg-5 mb-6 d-lg-block"><span
+                                        class="d-inline-block d-lg-block h1 mb-4 mb-lg-6 me-3 d-inline-block d-none">👋</span>
+                                    <h1 class="ls-tight font-bolder h2">Welcome Back!</h1>
+                                    <p class="small mt-2 text-muted">Please select your preferred sign in method</p>
+                                </div>
+
+                                <ul class="nav nav-pills nav-fill gap-2 p-tab small bg-tab rounded-tab mb-5"
+                                    id="pillNav2" role="tablist"
+                                    style="--bs-nav-link-color: var(--bs-dark); --bs-nav-pills-link-active-color: var(--bs-dark); --bs-nav-pills-link-active-bg: var(--bs-white);">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active rounded-tab-btn" id="home-tab2"
+                                            data-bs-toggle="tab" onclick="voucher();" type="button" role="tab"
+                                            aria-selected="true">Voucher</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link rounded-tab-btn" id="profile-tab2" data-bs-toggle="tab"
+                                            onclick="member();" type="button" role="tab"
+                                            aria-selected="false">Member</button>
+                                    </li>
+                                </ul>
+
+                                <!-- <div class="btn-group w-full mb-5">
+                                    <a href="#" class="btn btn-sm btn-neutral text-primary"
+                                        aria-current="page">Voucher</a>
+                                    <a href="#" class="btn btn-sm btn-neutral">Member</a>
+                                </div> -->
+
+                                <!-- <form>
+                                    <div class="mb-5">
+                                        <label class="form-label" for="email">Username</label>
+                                        <input type="text" class="form-control form-control-sm" id="username"
+                                            autocomplete="off" required>
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <label class="form-label" for="password">Password</label>
+                                            </div>
+                                            <div class="mb-2">
+                                                <a href="#"
+                                                    class="text-sm text-muted text-primary-hover text-underline">Forgot
+                                                    password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <input type="password" class="form-control form-control-sm" id="password"
+                                            autocomplete="current-password" required>
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="check_example"
+                                                id="showPasswordCheckbox">
+                                            <label class="form-check-label" for="check_example">Show password</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-sm btn-primary w-full">Sign in</button>
+                                    </div>
+                                </form> -->
+                                <form class="form-auth" name="login" action="$(link-login-only)" method="post" $(if
+                                    chap-id) onSubmit="return doLogin()" $(endif)>
+                                    <input type="hidden" name="dst" value="$(link-orig)" />
+                                    <input type="hidden" name="popup" value="true" />
+
+                                    <!-- Form control -->
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" id="username-label">Username</label>
+                                        <input name="username" type="text" value="$(username)"
+                                            placeholder="Please enter your username"
+                                            class="form-control form-control-sm" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group" id="ps-fg">
+                                        <label class="form-label" id="password-label">Password</label>
+                                        <input name="password" class="form-control form-control-sm" id="password"
+                                            type="password" placeholder="Please enter your password" required />
+                                    </div>
+                                    <!-- Form Check -->
+                                    <div class="form-check mb-5 mt-3 pb-3" id="customCheck">
+                                        <input class="form-check-input" type="checkbox" value="" onclick="myFunction()">
+                                        <label class="form-check-label" for="termsCheckbox">
+                                            Show password
+                                        </label>
+                                    </div>
+                                    <!-- End Form Check -->
+                                    <button type="submit" class="btn btn-sm btn-primary w-full ripple">Sign In</button>
+                                </form>
+
+                                <div class="lhhucE mt-4 mb-4">
+                                    <div class="lreZhl"></div><span class="PqS8vj">or</span>
+                                    <div class="lreZhl"></div>
+                                </div>
+
+                                <!-- Sign in with QR -->
+                                <a href="https://qr.pondenet.com" target="_blank"
+                                    class="btn btn-sm btn-neutral d-block align-items-center d-flex justify-content-center mb-3">
+                                    <i class="bi bi-qr-code-scan"></i>
+                                    <span class="mx-auto">Sign In with QR</span>
+                                </a>
+                                <a href="#" target="_blank"
+                                    class="btn btn-sm btn-neutral d-block align-items-center d-flex justify-content-center margin-bottom-14">
+                                    <i class="bi bi-wifi"></i>
+                                    <span class="mx-auto">Claim free WiFi</span>
+                                </a>
+                                <div class="text-center my-8 small">
+                                    <div class="sm-ft mb-3">
+                                        You acknowledge that you read, and agree to our <a
+                                            href="terms_condition.html">Terms of
+                                            Service</a> and our
+                                        <a href="privacy_policy.html">Privacy Policy.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="position-lg-absolute bottom-0 my-8 mx-16 text-center text-lg-center"><small>Get
+                            free WiFi click</small> <a href="#" class="text-warning text-sm font-semibold">here</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ads -->
+    <div class="modal fade" id="onload-ads" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Add this line to your code -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            </div>
+            <div class="close-icon" data-bs-dismiss="modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-x-circle-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                </svg>
+            </div>
+            <!-- Changes banner here -->
+            <img src="static/img/banner/banner-ads-ramadhan.png" alt="ads" class="w-100">
+        </div>
+    </div>
+    <!-- Library -->
+    <script src="static/js/jquery-3.7.1.js"></script>
+    <!-- General JS -->
+    <script src="static/js/main.js"></script>
+    <script src="static/js/app.js"></script>
+
+    <script>
+        var hostname = window.location.hostname;
+        var usernameLabel = document.getElementById('username-label');
+        var passwordLabel = document.getElementById('password-label');
+
+        document.login.username.focus();
+
+        // login page 2 
+        var username = document.login.username;
+        var password = document.login.password;
+
+        username.placeholder = "Kode Voucher";
+
+        // set password = username
+        function setpass() {
+            var user = username.value
+            //user = user.toLowerCase();
+            username.value = user;
+            password.value = user;
+        }
+
+        username.onkeyup = setpass;
+
+        // change to voucher mode
+        function voucher() {
+            username.focus();
+            username.onkeyup = setpass;
+            username.placeholder = "Please enter your voucher Code";
+            password.type = "hidden";
+            // infologin.innerHTML = "";
+            usernameLabel.textContent = "Voucher Code"; // set label text
+            passwordLabel.textContent = ""; // set label text
+
+            var checkboxInput = document.getElementById('customCheck');
+            // var passwordInput = document.getElementById('ps-fg');
+            // passwordInput.classList.remove('mb-3');
+            checkboxInput.classList.add('d-none');
+
+        }
+
+        // change to member mode
+        function member() {
+            username.focus();
+            username.onkeyup = "";
+            username.placeholder = "Please enter your username";
+            password.type = "password";
+            // infologin.innerHTML = "";
+            usernameLabel.textContent = "Username"; // set label text
+            passwordLabel.textContent = "Password"; // set label text
+
+            var checkboxInput = document.getElementById('customCheck');
+            // var passwordInput = document.getElementById('ps-fg');
+            // passwordInput.classList.add('mb-3');
+            checkboxInput.classList.remove('d-none');
+
+        }
+
+        window.onload = function () {
+            $('#onload-ads').modal('show'); // Show modal ads
+            voucher(); // Call voucher function
+        }
+    </script>
+    <script>
+        // Function show password
+        const passwordInput = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+
+        showPasswordCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+</body>

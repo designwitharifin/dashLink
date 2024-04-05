@@ -1,0 +1,32 @@
+{
+    "voucher": [
+        {
+            "id": 1,
+            "limit": "10 hours",
+            "devices": "2",
+            "data": "Unlimited",
+            "total": "2,55"
+        },
+        {
+            "id": 2,
+            "limit": "12 hours",
+            "devices": "3",
+            "data": "Unlimited",
+            "total": "3,99"
+        },
+        {
+            "id": 3,
+            "limit": "30 days",
+            "devices": "6",
+            "data": "Unlimited",
+            "total": "6,99"
+        },
+        {
+            "id": 4,
+            "limit": "30 days",
+            "devices": "10",
+            "data": "Unlimited",
+            "total": "10,99"
+        }
+    ]
+}
