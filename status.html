@@ -152,10 +152,10 @@
                 <div class="container-fluid vstack gap-6">
                     <div class="row g-6">
                         <div>
-                            <h5>pondenet.com/status</h5>
+                            <h5>$(hostname)/status</h5>
                             <p class="text-sm text-muted mt-1"><i
                                     class="bi bi-check-circle-fill text-success me-2"></i><span
-                                    class="text-success">Running</span>・Connected in 10s
+                                    class="text-success">Running</span>・Connected in $(uptime)
                             </p>
                         </div>
                         <div class="col-xl-3 col-sm-6 col-12">
@@ -164,7 +164,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Upload</span>
-                                            <span class="h3 font-bold mb-0">1982Mib</span>
+                                            <span class="h3 font-bold mb-0">$(bytes-out-nice)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                                         <div class="col">
                                             <span
                                                 class="h6 font-semibold text-muted text-sm d-block mb-2">Download</span>
-                                            <span class="h3 font-bold mb-0">1682Mib</span>
+                                            <span class="h3 font-bold mb-0">$(bytes-in-nice)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">IP
                                                 Adress</span>
-                                            <span class="h3 font-bold mb-0">192.168.99.01</span>
+                                            <span class="h3 font-bold mb-0">$(ip)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +203,7 @@
                                         <div class="col">
                                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Status
                                                 refresh</span>
-                                            <span class="h3 font-bold mb-0">1s</span>
+                                            <span class="h3 font-bold mb-0">$(refresh-timeout)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                                                 Username
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                Ujang
+                                                                $(username)
                                                             </div>
                                                         </div>
                                                     </div>
@@ -257,7 +257,7 @@
                                                                 IP Address
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                192.168.99.10
+                                                                $(ip)
                                                             </div>
                                                         </div>
                                                     </div>
@@ -277,7 +277,7 @@
                                                                 MAC Address
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                BNC::C010:XXCC
+                                                                $(mac)
                                                             </div>
                                                         </div>
                                                     </div>
@@ -297,7 +297,7 @@
                                                                 Connected
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                1h10s
+                                                                $(uptime)
                                                             </div>
                                                         </div>
                                                     </div>
@@ -306,6 +306,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <div class="list-group list-group-flush">
+                                                $(if session-time-left)
                                                 <div class="list-group-item px-0 position-relative hstack flex-wrap">
                                                     <div class="me-3 text-heading">
                                                         <div class="position-relative d-inline-block">
@@ -321,11 +322,13 @@
                                                                 Remaining time
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                10h18m1s
+                                                                $(session-time-left)
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                $(endif)
+                                                $(if remain-bytes-total)
                                                 <div class="list-group-item px-0 position-relative hstack flex-wrap">
                                                     <div class="me-3 text-heading">
                                                         <div class="position-relative d-inline-block">
@@ -341,11 +344,12 @@
                                                                 Remaining quota
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                1928Mib
+                                                                $(remain-bytes-total-nice)
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                $(endif)
                                                 <div class="list-group-item px-0 position-relative hstack flex-wrap">
                                                     <div class="me-3 text-heading">
                                                         <div class="position-relative d-inline-block">
@@ -361,7 +365,7 @@
                                                                 Status refresh
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                1s
+                                                                $(refresh-timeout)
                                                             </div>
                                                         </div>
                                                     </div>
@@ -381,7 +385,7 @@
                                                                 DNS
                                                             </span>
                                                             <div class="text-sm text-muted line-clamp-1 ms-auto">
-                                                                pondenet.com
+                                                                $(hostname)
                                                             </div>
                                                         </div>
                                                     </div>
