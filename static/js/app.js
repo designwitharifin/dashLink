@@ -184,6 +184,16 @@ $("#themeColor").attr("content", newThemeColor);
 // Update logo
 $(".logocolor").attr("src", logoColor);
 
+// Function show password
+function myFunction() {
+    var x = document.getElementById("password");
+    if (x.type == "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * Note: Please It is recommended to change this line of code if you do not understand it ⚠️

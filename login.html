@@ -14,9 +14,40 @@
     <!-- Utlilites CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/utilities.css">
 
+    <script>
+        const error = "$(error)";
+        if ((error == "user $(username) has reached uptime limit") || (error ==
+            "User $(username) has reached the time limit")) {
+            window.location.href = "./expired.html";
+        }
+        else if ((error == "user $(username) has reached traffic limit") || (error == "User $(username) has reached the quota limit")) {
+            window.location.href = "./isolir.html";
+        }
+    </script>
+
 </head>
 
 <body onload="voucher()">
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+
+    </script>
+    $(endif)
+
     <div>
         <div class="px-5 py-5 p-lg-0 min-h-screen d-flex flex-column justify-content-center bg-surface-secondary">
             <div class="d-flex justify-content-center">
@@ -41,6 +72,11 @@
                     <div class="py-lg-16 px-lg-20">
                         <div class="row">
                             <div class="col-lg-10 col-md-9 col-xl-6 mx-auto ms-xl-0">
+                                $(if error)
+                                <div class="alert alert-danger" role="alert">
+                                    $(error)
+                                </div>
+                                $(endif)
                                 <a class="d-lg-none" href="#">
                                     <img src="" alt="..." class="logocolor h-10">
                                 </a>
@@ -65,44 +101,6 @@
                                     </li>
                                 </ul>
 
-                                <!-- <div class="btn-group w-full mb-5">
-                                    <a href="#" class="btn btn-sm btn-neutral text-primary"
-                                        aria-current="page">Voucher</a>
-                                    <a href="#" class="btn btn-sm btn-neutral">Member</a>
-                                </div> -->
-
-                                <!-- <form>
-                                    <div class="mb-5">
-                                        <label class="form-label" for="email">Username</label>
-                                        <input type="text" class="form-control form-control-sm" id="username"
-                                            autocomplete="off" required>
-                                    </div>
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <label class="form-label" for="password">Password</label>
-                                            </div>
-                                            <div class="mb-2">
-                                                <a href="#"
-                                                    class="text-sm text-muted text-primary-hover text-underline">Forgot
-                                                    password?
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <input type="password" class="form-control form-control-sm" id="password"
-                                            autocomplete="current-password" required>
-                                    </div>
-                                    <div class="mb-5">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="check_example"
-                                                id="showPasswordCheckbox">
-                                            <label class="form-check-label" for="check_example">Show password</label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-sm btn-primary w-full">Sign in</button>
-                                    </div>
-                                </form> -->
                                 <form class="form-auth" name="login" action="$(link-login-only)" method="post" $(if
                                     chap-id) onSubmit="return doLogin()" $(endif)>
                                     <input type="hidden" name="dst" value="$(link-orig)" />
@@ -137,12 +135,12 @@
                                 </div>
 
                                 <!-- Sign in with QR -->
-                                <a href="https://qr.pondenet.com" target="_blank"
+                                <a href="https://laksa19.github.io/myqr/" target="_blank"
                                     class="btn btn-sm btn-neutral d-block align-items-center d-flex justify-content-center mb-3">
                                     <i class="bi bi-qr-code-scan"></i>
                                     <span class="mx-auto">Sign In with QR</span>
                                 </a>
-                                <a href="#" target="_blank"
+                                <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
                                     class="btn btn-sm btn-neutral d-block align-items-center d-flex justify-content-center margin-bottom-14">
                                     <i class="bi bi-wifi"></i>
                                     <span class="mx-auto">Claim free WiFi</span>
@@ -150,17 +148,14 @@
                                 <div class="text-center my-8 small">
                                     <div class="sm-ft mb-3">
                                         You acknowledge that you read, and agree to our <a
-                                            href="terms_condition.html">Terms of
+                                            href="terms-condition.html">Terms of
                                             Service</a> and our
-                                        <a href="privacy_policy.html">Privacy Policy.</a>
+                                        <a href="privacy-policy.html">Privacy Policy.</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="position-lg-absolute bottom-0 my-8 mx-16 text-center text-lg-center"><small>Get
-                            free WiFi click</small> <a href="#" class="text-warning text-sm font-semibold">here</a>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -180,7 +175,7 @@
                 </svg>
             </div>
             <!-- Changes banner here -->
-            <img src="static/img/banner/banner-ads-ramadhan.png" alt="ads" class="w-100">
+            <img src="static/img/banner/banner-ads-eid.png" alt="ads" class="w-100">
         </div>
     </div>
     <!-- Library -->
